@@ -3,22 +3,30 @@ import React, { useRef, useState } from 'react';
 const InputSample = () => {
     const userInfo = {
         username: '',
+        email: '',
         password: ''
     }
 
     const [userInput, setUserInput] = useState(userInfo);
     const [userInfoText, setUsetInfoText] = useState(userInfo);
 
-    const { username, password } = userInfoText;
+    const { username, email, password } = userInfoText;
 
     const passwordRef = useRef();
+    const emailRef = useRef();
 
     const handlerChange = (e) => {
         const { name, value } = e.target;
         setUserInput({...userInput, [name]: value});
     }
 
-    const nextFocus = (e) => {
+    const nextFocusmail = (e) => {
+        if(e.keyCode === 13) {
+            emailRef.current.focus();
+        }
+    }
+
+    const nextFocuspw = (e) => {
         if(e.keyCode === 13) {
             passwordRef.current.focus();
         }
@@ -35,8 +43,15 @@ const InputSample = () => {
             <input 
                 type="text" 
                 onChange={handlerChange}
-                onKeyUp={nextFocus} 
+                onKeyUp={nextFocusmail} 
                 name="username" 
+            />
+            <input 
+                type="text"
+                onChange={handlerChange}
+                onKeyUp={nextFocuspw}
+                name="email"
+                ref={emailRef}
             />
             <input 
                 type="text" 
@@ -46,6 +61,7 @@ const InputSample = () => {
                 ref={passwordRef}
             />
             <div>username: {username}</div>
+            <div>email: {email}</div>
             <div>password: {password}</div>
         </div>
     );
