@@ -1,0 +1,638 @@
+.main-container {
+    margin: 10px auto;
+    width: 500px;
+    height: 100%;
+}
+
+.main-hidden {
+    display: none;
+}
+
+
+.menu-nav {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 30px;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    width: 470px;
+    height: 50px;
+}
+
+.main-manager-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 50px;
+    padding-left: 25px;
+}
+
+.profile-photo {
+    width: 50px;
+    height: 50px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-photo:hover {
+    opacity: 0.6;
+}
+
+.profile-photo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.add-task-button {
+    position: absolute;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgb(255, 80, 60);
+}
+
+.add-task-button .fa-plus {
+    /* width: 20px;
+    height: 20px; */
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+
+.add-task-button:hover {
+    opacity: 0.6;
+    background-color: rgb(255, 80, 60);
+    /* transform: scale(1.1); */
+}
+
+/* .menu-nav:hover:not(.add-task-button) {
+    filter: brightness(0.8) blur(2px);
+} */
+
+
+
+.main-title {
+    margin: 20px 0px 0px 20px;
+    font-size: 40px;
+}
+
+.main-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100px;
+    width: 90%;
+
+    margin-top: 30px;
+    margin-left: 22px;
+    border: 2px solid #dbdbdb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.progress-left {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+
+}
+
+.progress-chart {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background:lightgray;
+    display:inline-block;
+}
+
+.progress-chart:after { /* 가상선택자는 도넛 모양을 만들기 위함이다.*/
+    content:'';
+    background: #fff;  /* 백그라운드 컬러로 중앙가리기 */
+    position: absolute;
+    top:50%; left:50%;
+    width:60px; height:60px; /* 도넛의 너비 설정 */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.progress-chart-bar {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background: conic-gradient(#0d66da 230deg, #dbdbdb 0deg); /* 차트 설정 */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-chart-percentage {
+    z-index: 998;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    color: #0d66da;
+}
+
+
+.progress-right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    right: 0;
+}
+
+.progress-header {
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.progress-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    color: #0d66da;
+}
+
+.progress-footer {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-style: normal;
+    color: #aaa7a7;
+}
+
+.main-reminder {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+#today-tasks {
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
+    color: #0d66da;
+
+    font-size: 23px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+.task-content{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow-y: auto;
+
+    
+}
+
+
+.content-container {
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 545px;
+    padding-left: 0px;
+    padding-top: 25px;
+    position: relative;
+    left: 0px;
+}
+
+.content-container:hover, .content-container .active {
+    transform: translateX(-100px);
+    transition: transform 1s ease;
+    outline: none;
+}
+
+.content-deadline {
+    padding: 20px 0px 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 5%;
+    transform: rotate(270deg);
+
+    font-size: 18px;
+    font-weight: 600;
+    color: #0d66da;
+}
+
+.content-list1 {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #dbdbdb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    box-shadow: 0px 0px 5px 1px #dbdbdb;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    color: whitesmoke;
+}
+
+.background1 {
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+
+    border: 2px solid #dbdbdb;
+}
+
+.content-list2 {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #dbdbdb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    box-shadow: 0px 0px 5px 1px #dbdbdb;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    color: #121212;
+}
+
+.background2 {
+    background-image: url("../images/background2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+
+    border: 2px solid #dbdbdb;
+}
+
+.content-list3 {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #dbdbdb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    box-shadow: 0px 0px 5px 1px #dbdbdb;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    color: #b6e0f8;
+}
+
+.background3 {
+    background-image: url("../images/background3.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+
+    border: 2px solid #dbdbdb;
+}
+
+.content-list4 {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #dbdbdb;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    box-shadow: 0px 0px 5px 1px #dbdbdb;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    color: #b6e0f8;
+}
+
+.background4 {
+    background-image: url("../images/background4.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+
+    border: 2px solid #dbdbdb;
+}
+
+.content-header {
+    padding-top: 20px;
+    padding-left: 30px;
+    width: 100%;
+    height: 40%;
+
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.content-body {
+    padding-top: 5px;
+    padding-left: 30px;
+    width: 100%;
+    height: 15%;
+    font-size: 15px;
+}
+
+.content-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    width: 100%;
+    height: 45%;
+    font-size: 17px;
+}
+
+.content-buttons {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content-check-button {
+    position: relative;
+    top: -8px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    font-size: 30px;
+
+}
+
+.content-delete-button {
+    position: relative;
+    bottom: -8px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    font-size: 30px;
+}
+
+.profile-back-button {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    color: rgb(255, 80, 60);
+    font-size: 30px; 
+    background-color: #00000000;
+
+    border: 3px solid rgb(255, 80, 60);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    cursor: pointer;
+}
+
+.profile-back-button:hover {
+    opacity: 0.6;
+    background-color: #00000000;
+}
+
+.profile-save-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 311px;
+    width: 150px;
+    height: 50px;
+
+    color: #0d66da;
+    font-size: 17px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    overflow: hidden;
+
+}
+
+.profile-save-button:hover {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    transform: translateX(-20px);
+    transition: transform 1s ease;
+    outline: none;
+}
+
+.main-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 60px;
+}
+
+.info-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 130px;
+    width: 200px;
+    height: 200px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.info-photo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.info-photo:hover {
+    opacity: 0.8;
+}
+
+.photo-file {
+    display: none;
+}
+
+.change-nav {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+
+    display: none;
+
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #121212bb;
+    color: white;
+    font-size: 10px;
+}
+
+.info-photo:hover .change-nav {
+    display: block;
+}
+
+.info-main {
+    margin-top: 10px;
+    padding: 10px 20px 20px 20px;
+}
+
+.info-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.button-hidden {
+    display: none;
+}
+
+.info-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.detail-left, .detail-right {
+    width: 48%;
+}
+
+.info-input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info-input-container label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.info-input {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+.coworker-input {
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+.info-input:disabled,
+.coworker-input:disabled {
+    background-color: white;
+}
+
+.projects-input {
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+.info-input:disabled,
+.projects-input:disabled {
+    background-color: white;
+}
+
+
+
+
+
+
